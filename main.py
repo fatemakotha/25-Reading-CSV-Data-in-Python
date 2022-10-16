@@ -32,3 +32,41 @@ data_dict = data.to_dict()
 print(data_dict) #converts DATAFRAME into a dictionary
 
 temp_list = data["temp"].tolist() #converts a SERIESs into a list
+print(temp_list)
+
+#Calculating AVERAGE TEMPERATURE:
+total_temp = 0
+for each_temp in temp_list:
+    total_temp += int(each_temp)
+avg_temp = total_temp / len(temp_list)
+print(avg_temp) #prints: 17.428571428571427
+
+#OR:
+avg_temp = sum(temp_list) / len(temp_list)
+print(avg_temp) #prints: 17.428571428571427
+
+#OR:
+avg_temp = data["temp"].mean()
+print(avg_temp) #prints: 17.428571428571427
+
+#Return MAX value of a series/volumn:
+max_temp = data["temp"].max()
+print(max_temp) #prints: 24
+
+#Get Data in Columns:
+print(data["condition"]) #prints the condition column....1
+#OR:
+print(data.condition) #prints the condition column.......1
+
+#Get Data in Rows:
+print(data[data["day"] == "Monday"]) #prints: 0  Monday    12     Sunny
+print(data[data.day == "Monday"]) #prints: 0  Monday    12     Sunny
+
+#Print row of data with MAX temp:
+print(data[data.temp == data.temp.max()]) #prints: 6  Sunday    24     Sunny
+
+monday = data[data.day == "Monday"] #gets hold of the monday row
+print(monday.condition) #prints: 0    Sunny
+
+
+#convert Mondats' temp into Fahrenheit:
