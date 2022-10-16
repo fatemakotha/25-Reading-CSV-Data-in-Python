@@ -10,6 +10,7 @@ with open("weather_data.csv") as data_file:
     data = csv.reader(data_file) #comes out as a list that we can loop through **
     temperature = []
     for row in data:
-        new_temp = row[1]
-        temperature.append(new_temp)
+        if row[1] != "temp":
+            new_temp = int(row[1])
+            temperature.append(new_temp)
     print(temperature)
