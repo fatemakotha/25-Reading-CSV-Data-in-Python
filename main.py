@@ -15,8 +15,13 @@
 #             temperature.append(new_temp)
 #     print(temperature)
 
+
+
+
 import pandas
+#THERE ARE 2 TYPES OF OBJECT IN PANDAS: DATAFRAME and SERIES:
 
 data = pandas.read_csv("weather_data.csv")
+print(type(data)) #we get a pandas dataframe object: <class 'pandas.core.frame.DataFrame'>
 print(data) #prints out the data in a tabular form perfectly
-
+print(type(data["temp"])) #we get a pandas series object: <class 'pandas.core.series.Series'>
